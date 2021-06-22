@@ -145,11 +145,11 @@ function Dificuldades(){
     this.normal.innerHTML = 'NORMAL';
 
     this.getDificuldadeHard = () => {
-        new FlappyBird(500).start();
+        new FlappyBird(150).start();
     }
 
     this.getDificuldadeNormal = () => {
-        new FlappyBird(250).start();
+        new FlappyBird(200).start();
     }
 
     this.hard.addEventListener('click', this.getDificuldadeHard);
@@ -182,6 +182,12 @@ function FlappyBird(dificuldade) {
 
         }, 20)
     }
+
+    this.initpage = () => {
+            barreiras.animar();
+            passaro.animar();
+    }
+
 }
 
 function renderButtons(){

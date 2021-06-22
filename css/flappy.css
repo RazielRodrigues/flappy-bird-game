@@ -9,11 +9,11 @@
 
 [wm-flappy] {
     position: relative;
-    border: 5px solid dodgerblue;
-    height: 700px;
-    width: 1200px;
+    border: 5px solid black;
+    height: 1200px;
+    width: 1024px;
     margin: 15px;
-    background-color: deepskyblue;
+    background-image: url('../imgs/background.jpg');
     overflow: hidden;
 }
 
@@ -67,4 +67,6 @@
     font-family: Pixel;
     color: white;
     background: linear-gradient(90deg, #639301, #A5EB2E);
+    padding: 10px;
+    margin-left: 10px;
 }
