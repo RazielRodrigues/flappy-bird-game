@@ -141,32 +141,35 @@ function Dificuldades(){
     this.hard = novoElemento('button', 'restart');
     this.hard.innerHTML = 'HARD';
 
-    this.getDificuldade = () => {
-        alert(400);
+    this.normal = novoElemento('button', 'restart');
+    this.normal.innerHTML = 'NORMAL';
+
+    this.getDificuldadeHard = () => {
+        new FlappyBird(500).start();
     }
 
-    this.hard.addEventListener('click', this.getDificuldade);
+    this.getDificuldadeNormal = () => {
+        new FlappyBird(250).start();
+    }
+
+    this.hard.addEventListener('click', this.getDificuldadeHard);
+    this.normal.addEventListener('click', this.getDificuldadeNormal);
+
 }
 
-function FlappyBird() {
+function FlappyBird(dificuldade) {
     let pontos = 0;
-    let dificuldade = 300;
 
     const areaDoJogo = document.querySelector('[wm-flappy]');
-    const gameOpcoes = document.querySelector('[game-options]');
     const altura = areaDoJogo.clientHeight;
     const largura = areaDoJogo.clientWidth;
 
     const progresso = new Progresso();
-    const dificuldades = new Dificuldades();
     const barreiras = new Barrareias(altura, largura, dificuldade, 400, () => progresso.atualizarPontos(++pontos));
     const passaro = new Passaro(altura);
-    const botaoStart = new BotaoStart();
 
     areaDoJogo.appendChild(progresso.elemento);
     areaDoJogo.appendChild(passaro.elemento);
-    gameOpcoes.appendChild(botaoStart.elemento);
-    gameOpcoes.appendChild(dificuldades.hard);
     barreiras.pares.forEach(par => areaDoJogo.appendChild(par.elemento));
 
     this.start = () => {
@@ -181,4 +184,13 @@ function FlappyBird() {
     }
 }
 
-new FlappyBird().start();
+function renderButtons(){
+    const gameOpcoes = document.querySelector('[game-options]');
+    const botaoStart = new BotaoStart();
+    const dificuldades = new Dificuldades();
+    gameOpcoes.appendChild(botaoStart.elemento);
+    gameOpcoes.appendChild(dificuldades.hard);
+    gameOpcoes.appendChild(dificuldades.normal);
+}
+
+new renderButtons();
