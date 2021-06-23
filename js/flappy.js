@@ -144,19 +144,16 @@ function Dificuldades(){
     this.normal = novoElemento('button', 'restart');
     this.normal.innerHTML = 'NORMAL';
 
-    this.birdNormal = new FlappyBird(150);
-    this.birdHard = new FlappyBird(200);
-
     this.getDificuldadeHard = () => {
         this.hard.classList.add('hide');
         this.normal.classList.add('hide');
-        this.birdNormal.start();
+        new FlappyBird(175).start();
     }
 
     this.getDificuldadeNormal = () => {
         this.hard.classList.add('hide');
         this.normal.classList.add('hide');
-        this.birdHard.start();
+        new FlappyBird(200).start();
     }
 
     this.hard.addEventListener('click', this.getDificuldadeHard);
