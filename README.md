@@ -1,2 +1,3 @@
-# flappy-bird-js
-Flappy bird game.
+# Flappy bird game.
+
+You can play here: https://razielmiranda.github.io/flappy-bird-js/
